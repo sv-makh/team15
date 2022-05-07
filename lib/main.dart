@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:team15/Screens/categories.dart';
 import 'package:team15/Screens/lectures.dart';
 import 'package:team15/Screens/profile.dart';
+import 'package:team15/Screens/curators.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: _title,
+      debugShowCheckedModeBanner: false,
       home: MyStatefulWidget(),
     );
   }
@@ -33,6 +35,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     Categories().categories(),
+    Curators().curators(),
     Lectures().lectures(),
     Profile().profile(),
   ];
@@ -46,9 +49,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: const Text('BottomNavigationBar Sample'),
-      ),
+      ),*/
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -57,14 +60,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Категории',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Лекции',
+            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
+            label: 'Кураторы',
+            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book_outlined),
+            label: 'Лекции',
+            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
             label: 'Профиль',
+            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
         ],
         currentIndex: _selectedIndex,
