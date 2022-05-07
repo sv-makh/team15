@@ -18,9 +18,12 @@ class User extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
-            height: 20,
+            height: 40,
           ),
-          Image.asset('assets/images/profile.png'),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image.asset('assets/images/profile.png'),
+          ),
           SizedBox(
             height: 10,
           ),
@@ -132,7 +135,8 @@ class User extends StatelessWidget {
             height: 10,
           ),
           ElevatedButton(
-              style: ButtonStyle(),
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(29, 233, 182, 1.0)),
               onPressed: () {},
               child: Text(
                 'Настройки',
