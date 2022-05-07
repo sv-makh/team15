@@ -1,7 +1,7 @@
 class Lection {
-  String? name;
-  String? description;
-  String? icon;
+  String name = "";
+  String description = "";
+  String icon = "";
 
   Lection(String n, String d, String i) {
     name = n;
