@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:team15/Screens/categories.dart';
 import 'package:team15/Screens/lectures.dart';
 import 'package:team15/Screens/profile.dart';
+import 'package:team15/splashscreen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: _title,
-      home: MyStatefulWidget(),
+      home: SplashScreenPage(),
     );
   }
 }
@@ -30,7 +31,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     Categories().categories(),
     Lectures().lectures(),
