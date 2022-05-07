@@ -8,16 +8,22 @@ class SplashScreenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 2,
+      seconds: 4,
       navigateAfterSeconds: new MyStatefulWidget(),
       backgroundColor: Color.fromRGBO(29, 233, 182, 1.0),
       title: new Text(
-        'Добро пожаловать!',
+        'Share experience',
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
         textScaleFactor: 2,
       ),
-      image: new Image.network('https://images.app.goo.gl/gj2DscmNumpFqZEg9'),
-      loadingText: new Text("Загрузка"),
+      image: new Image.asset(
+        'assets/images/logo.png',
+        width: 400,
+      ),
+      loadingText: new Text(
+        "Загрузка",
+      ),
       photoSize: 110.0,
       loaderColor: Color.fromARGB(255, 3, 109, 82),
     );
