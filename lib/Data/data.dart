@@ -35,23 +35,11 @@ class SubCategory {
 var LectionList = [
   Lection("Создание макетов в Figma", "Пошаговая инструкция", "assets/images/l1.png", DateTime.utc(2022, 06, 1, 12, 0)),
   Lection("Регрессионное тестирование приложений", "Полное и частичное, проблемы, выбор тестов", "assets/images/l2.png", DateTime.utc(2022, 06, 2, 12, 0)),
-  Lection("Flutter для начинающих", "Разработка мобильных приложений", "assets/images/l2.png", DateTime.utc(2022, 06, 3, 12, 0)),
-  Lection("UX/UI дизайн", "Проектирование пользовательских интерфейсов", "assets/images/l2.png", DateTime.utc(2022, 06, 4, 12, 0))
+  Lection("Flutter для начинающих", "Разработка мобильных приложений", "assets/images/l3.png", DateTime.utc(2022, 06, 3, 12, 0)),
+  Lection("UX/UI дизайн", "Проектирование пользовательских интерфейсов", "assets/images/l4.png", DateTime.utc(2022, 06, 4, 12, 0))
 ];
 
-var SubCategoryList7 = [
-  SubCategory("Веб-разработка", []),
-  SubCategory("Мобильная разработка", []),
-  SubCategory("Аналитика", [])
-];
-var SubCategoryList6 = [
-  SubCategory("Графический дизайн", [LectionList[0], LectionList[4]]),
-  SubCategory("Веб-дизайн", []),
-  SubCategory("Моушн-дизайн", []),
-  SubCategory("Дизайн интерьеров", []),
-  SubCategory("Гейм-дизайн", []),
-  SubCategory("Продуктовый дизайн", []),
-];
+
 var SubCategoryList1 = [
   SubCategory("Шитьё", []),
   SubCategory("Вышивка", []),
@@ -88,6 +76,19 @@ var SubCategoryList5 = [
   SubCategory("Австралия", []),
   SubCategory("Скандинавия", []),
   SubCategory("Африка", []),
+];
+var SubCategoryList6 = [
+  SubCategory("Графический дизайн", [LectionList[0], LectionList[3]]),
+  SubCategory("Веб-дизайн", []),
+  SubCategory("Моушн-дизайн", []),
+  SubCategory("Дизайн интерьеров", []),
+  SubCategory("Гейм-дизайн", []),
+  SubCategory("Продуктовый дизайн", []),
+];
+var SubCategoryList7 = [
+  SubCategory("Веб-разработка", []),
+  SubCategory("Мобильная разработка", []),
+  SubCategory("Аналитика", [])
 ];
 
 var CategoryList = [

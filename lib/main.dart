@@ -38,7 +38,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     Categories().categories(),
-    Curators().curators(),
+    //Curators().curators(),
     Lectures().lectures(),
     Profile().profile(),
   ];
@@ -65,11 +65,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'Категории',
             backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
-          BottomNavigationBarItem(
+          /*BottomNavigationBarItem(
             icon: Icon(Icons.school),
             label: 'Кураторы',
             backgroundColor: Color.fromRGBO(29, 233, 182, 1),
-          ),
+          ),*/
           BottomNavigationBarItem(
             icon: Icon(Icons.book_outlined),
             label: 'Лекции',

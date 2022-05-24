@@ -4,8 +4,11 @@ import 'package:team15/Data/data.dart';
 class Curators {
 
   Widget curators() {
-    return Container(
-      child: ListView.builder(
+    return Scaffold(
+      appBar: AppBar(title: Text('Список кураторов'),),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: ListView.builder(
           itemCount: CuratorList.length,
           itemBuilder: ((BuildContext context, int index) {
             return Card(
@@ -21,7 +24,7 @@ class Curators {
             );
           })
       ),
-    );
+    ));
   }
 
 }

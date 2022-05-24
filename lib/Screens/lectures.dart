@@ -11,7 +11,7 @@ class Lectures {
             return Card(
               color: Color.fromRGBO(126, 239, 220, 1),
               child: ListTile(
-                //leading: Image.asset(LectionList[index].name),
+                leading: Image.asset(LectionList[index].icon),
                 title: Text(LectionList[index].name),
                 subtitle: Text(LectionList[index].description),
                 onTap: () {
