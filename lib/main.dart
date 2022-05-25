@@ -36,6 +36,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static List<Widget> _widgetOptions = <Widget>[
     Categories().categories(),
     Lectures().lectures(),
@@ -55,25 +56,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromRGBO(29, 233, 182, 1),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Категории',
-            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book_outlined),
             label: 'Лекции',
-            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Профиль',
-            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromRGBO(0, 181, 133, 1),
+        unselectedItemColor: Colors.white,
         onTap: _onItemTapped,
       ),
     );
