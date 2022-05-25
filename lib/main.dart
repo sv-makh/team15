@@ -13,12 +13,12 @@ void main() => runApp( MyApp());
 class MyApp extends StatelessWidget {
   //const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter Code Sample';
+  //static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: _title,
+      //title: _title,
       debugShowCheckedModeBanner: false,
       home: SplashScreenPage(),
     );
@@ -38,7 +38,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     Categories().categories(),
-    Curators().curators(),
     Lectures().lectures(),
     Profile().profile(),
   ];
@@ -52,9 +51,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),*/
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -63,11 +59,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Категории',
-            backgroundColor: Color.fromRGBO(29, 233, 182, 1),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Кураторы',
             backgroundColor: Color.fromRGBO(29, 233, 182, 1),
           ),
           BottomNavigationBarItem(

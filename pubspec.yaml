@@ -64,6 +64,10 @@ flutter:
     - assets/images/cur2.png
     - assets/images/cur3.png
     - assets/images/cur4.png
+    - assets/images/l1.png
+    - assets/images/l2.png
+    - assets/images/l3.png
+    - assets/images/l4.png
     - assets/images/profile.png
     - assets/images/logo.png
     #- assets/images/a_dot_burr.jpeg
