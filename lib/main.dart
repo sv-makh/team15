@@ -7,6 +7,7 @@ import 'package:team15/Screens/lectures.dart';
 import 'package:team15/Screens/profile.dart';
 import 'package:team15/Screens/curators.dart';
 import 'package:team15/splashscreen.dart';
+import 'package:team15/tab_navigator.dart';
 
 void main() => runApp( MyApp());
 
@@ -33,6 +34,14 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  var _currentTab = TabItem.categories;
+
+  void _selectTab(TabItem tabItem) {
+    setState(() {
+      _currentTab = tabItem;
+    });
+  }
+
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
