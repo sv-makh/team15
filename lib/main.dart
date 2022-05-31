@@ -34,17 +34,23 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  var _currentTab = TabItem.categories;
+  /*var _currentTab = TabItem.categories;
 
   void _selectTab(TabItem tabItem) {
     setState(() {
       _currentTab = tabItem;
     });
-  }
+  }*/
 
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  final _navigatorKeys = {
+    1: GlobalKey<NavigatorState>(),
+    2: GlobalKey<NavigatorState>(),
+    3: GlobalKey<NavigatorState>(),
+  };
 
   static List<Widget> _widgetOptions = <Widget>[
     Categories().categories(),
@@ -61,9 +67,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: Stack(
+        children: <Widget>[
+          _buildOffstageNavigator(1),
+          _buildOffstageNavigator(2),
+          _buildOffstageNavigator(3),
+        ],
       ),
+      /*Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),*/
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color.fromRGBO(29, 233, 182, 1),
         items: const <BottomNavigationBarItem>[
@@ -84,6 +97,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         selectedItemColor: Color.fromRGBO(0, 181, 133, 1),
         unselectedItemColor: Colors.white,
         onTap: _onItemTapped,
+      ),
+    );
+  }
+
+  Widget _buildOffstageNavigator(int tabIndex) {
+    return Offstage(
+      offstage: _selectedIndex != tabIndex,
+      child: TabNavigator(
+        navigatorKey: _navigatorKeys[tabIndex],
+        tabIndex: tabIndex,
       ),
     );
   }
