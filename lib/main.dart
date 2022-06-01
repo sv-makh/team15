@@ -53,7 +53,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   };
 
   static List<Widget> _widgetOptions = <Widget>[
-    Categories().categories(),
+    Categories(),//.categories(),
     Lectures().lectures(),
     Profile().profile(),
   ];

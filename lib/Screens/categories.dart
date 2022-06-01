@@ -4,13 +4,17 @@ import 'package:team15/Screens/subcategories.dart';
 import 'package:team15/Data/data.dart';
 import 'package:team15/Decor/decorations.dart';
 
-class Categories {
+/*class Categories {
   Widget categories() {
     return CategoriesList1();
   }
-}
+}*/
 
-class CategoriesList1 extends StatelessWidget {
+class Categories extends StatelessWidget {
+  Categories({this.onPush});
+
+  final ValueChanged<int>? onPush;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +31,11 @@ class CategoriesList1 extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(38.0),
                 ),
-                onPressed: () {
+                onPressed: () => onPush?.call(index),
+                  /*{
                   Route route = MaterialPageRoute(builder: ((context) => SubCat(index)));
                   Navigator.push(context, route);
-                },
+                },*/
                 padding: EdgeInsets.all(10.0),
                 color: categoryColors[index],
                 textColor: Colors.white,
