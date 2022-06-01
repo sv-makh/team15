@@ -47,9 +47,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   final _navigatorKeys = {
+    0: GlobalKey<NavigatorState>(),
     1: GlobalKey<NavigatorState>(),
     2: GlobalKey<NavigatorState>(),
-    3: GlobalKey<NavigatorState>(),
   };
 
   static List<Widget> _widgetOptions = <Widget>[
@@ -59,9 +59,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index == _selectedIndex) {
+      _navigatorKeys[index].currentState.popUntil((route) => route.isFirst);
+    } else {
+      setState(() => _selectedIndex = index);
+    }
   }
 
   @override
@@ -69,9 +71,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
+          _buildOffstageNavigator(0),
           _buildOffstageNavigator(1),
           _buildOffstageNavigator(2),
-          _buildOffstageNavigator(3),
         ],
       ),
       /*Center(
