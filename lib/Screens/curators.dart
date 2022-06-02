@@ -16,14 +16,17 @@ class Curators extends StatelessWidget {
         CategoryList[indexCategory].list![indexSubcategory].list;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Список кураторов'),),
+      appBar: AppBar(
+        title: const Text('Список кураторов'),
+        backgroundColor: const Color.fromRGBO(29, 233, 182, 1),
+      ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: ListView.builder(
           itemCount: curatorsOfSubcategory!.length,
           itemBuilder: ((BuildContext context, int index) {
             return Card(
-              color: Color.fromRGBO(126, 239, 220, 1),
+              color: const Color.fromRGBO(126, 239, 220, 1),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(38.0),
               ),
@@ -31,9 +34,7 @@ class Curators extends StatelessWidget {
                 leading: Image.asset(curatorsOfSubcategory[index].avatar),
                 title: Text(curatorsOfSubcategory[index].name),
                 subtitle: Text(curatorsOfSubcategory[index].bio),
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
             );
           })

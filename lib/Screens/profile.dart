@@ -10,21 +10,21 @@ class Profile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
             child: Image.asset('assets/images/profile.png'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             'Екатерина Смирнова',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -32,106 +32,106 @@ class Profile extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(3)),
-            padding: EdgeInsets.all(10.0),
-            margin: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
+            margin: const EdgeInsets.all(10.0),
             height: 100,
             width: 400,
-            child: Text(
+            child: const Text(
               'Путешествия, спорт, здоровый образ жизни. Изучаю разработку, планирую создать свою мобильную игру.',
               style: TextStyle(fontSize: 18),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text('Мои направления',
+          const Text('Мои направления',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 height: 50,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(38.0),
                   ),
                   onPressed: () {},
-                  padding: EdgeInsets.all(10.0),
-                  color: Color.fromRGBO(119, 235, 151, 1),
+                  padding: const EdgeInsets.all(10.0),
+                  color: const Color.fromRGBO(119, 235, 151, 1),
                   textColor: Colors.white,
-                  child: Text("Дизайн",
+                  child: const Text("Дизайн",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 height: 50,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(38.0),
                   ),
                   onPressed: () {},
-                  padding: EdgeInsets.all(10.0),
-                  color: Color.fromRGBO(126, 239, 220, 1),
+                  padding: const EdgeInsets.all(10.0),
+                  color: const Color.fromRGBO(126, 239, 220, 1),
                   textColor: Colors.white,
-                  child: Text("Программирование",
+                  child: const Text("Программирование",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
                 ),
               ),
             ],
           ),
-          Text('Мои лекции',
+          const Text('Мои лекции',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 height: 50,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(38.0),
                   ),
                   onPressed: () {},
-                  padding: EdgeInsets.all(10.0),
-                  color: Color.fromRGBO(126, 239, 220, 1),
+                  padding: const EdgeInsets.all(10.0),
+                  color: const Color.fromRGBO(126, 239, 220, 1),
                   textColor: Colors.white,
-                  child: Text("Создание макетов в Figma",
+                  child: const Text("Создание макетов в Figma",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 height: 50,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(38.0),
                   ),
                   onPressed: () {},
-                  padding: EdgeInsets.all(10.0),
-                  color: Color.fromRGBO(126, 239, 220, 1),
+                  padding: const EdgeInsets.all(10.0),
+                  color: const Color.fromRGBO(126, 239, 220, 1),
                   textColor: Colors.white,
-                  child: Text("Flutter для начинающих",
+                  child: const Text("Flutter для начинающих",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(29, 233, 182, 1.0)),
+                  primary: const Color.fromRGBO(29, 233, 182, 1.0)),
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 'Настройки',
               ))
         ],

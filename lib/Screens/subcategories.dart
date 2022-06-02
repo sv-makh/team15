@@ -16,12 +16,12 @@ class SubCat extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: ListView.builder(
             itemCount: currentSubCategoryList!.length,
             itemBuilder: ((BuildContext context, int subIndex) {
               return Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 width: 356,
                 height: 80,
                 child: RaisedButton(
@@ -35,8 +35,8 @@ class SubCat extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   color: categoryColors[index],
                   textColor: Colors.white,
-                  child: Text(currentSubCategoryList![subIndex].name!,
-                      style: TextStyle(fontSize: 28, color: Colors.black)),
+                  child: Text(currentSubCategoryList[subIndex].name!,
+                      style: const TextStyle(fontSize: 28, color: Colors.black)),
                 ),
               );
             })
