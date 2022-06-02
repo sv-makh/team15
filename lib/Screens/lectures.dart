@@ -2,10 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
 
 class Lectures extends StatelessWidget {
+  List<Lection> _futureLections = [];
+  List<Lection> _recLections = [];
+
+  DateTime currentDate = DateTime.now();
+
+  void _classifyLections() {
+    for (var lect in Lections) {
+      if (lect.dateTime!.isAfter(currentDate)) _futureLections.add(lect);
+      else _recLections.add(lect);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _classifyLections();
+
     return Container(
-      child: ListView.builder(
+      padding: const EdgeInsets.all(10),
+      child: Column( children: [
+        Row( children: [
+
+        ],
+        ),
+        ListView.builder(
         itemCount: Lections.length,
         itemBuilder: ((BuildContext context, int index) {
 
@@ -25,7 +45,7 @@ class Lectures extends StatelessWidget {
             );
           }
         )
-      ),
+      ),])
     );
   }
 }
