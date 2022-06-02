@@ -54,15 +54,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   static List<Widget> _widgetOptions = <Widget>[
     Categories(),//.categories(),
-    Lectures().lectures(),
-    Profile().profile(),
+    Lectures(),//.lectures(),
+    Profile(),//.profile(),
   ];
 
-  void _onItemTapped(int index) {
-    if (index == _selectedIndex) {
-      _navigatorKeys[index].currentState.popUntil((route) => route.isFirst);
+  void _onItemTapped(int tabIndex) {
+    if (tabIndex == _selectedIndex) {
+      _navigatorKeys[tabIndex].currentState.popUntil((route) => route.isFirst);
     } else {
-      setState(() => _selectedIndex = index);
+      setState(() => _selectedIndex = tabIndex);
     }
   }
 

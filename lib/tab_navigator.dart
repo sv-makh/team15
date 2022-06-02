@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/categories.dart';
 import 'package:team15/Screens/subcategories.dart';
 import 'package:team15/Screens/curators.dart';
+import 'package:team15/Screens/lectures.dart';
+import 'package:team15/Screens/profile.dart';
 
-class TabNavigatorRoutes {
+class TabNavigatorRoutesCat {
   static const String root = '/';
   static const String subCat = '/subcat';
   static const String curat = '/subcat/curat';
+}
+
+class TabNavigatorRoutesLect {
+  static const String root = '/';
+}
+
+class TabNavigatorRoutesProfile {
+  static const String root = '/';
 }
 
 class TabNavigator extends StatelessWidget {
@@ -15,47 +26,70 @@ class TabNavigator extends StatelessWidget {
   final int tabIndex;
 
   void _pushSubCat(BuildContext context, {int catIndex: 0}) {
-    var routeBuilders = _routeBuilders(context, catIndex: catIndex);
+    var routeBuilders = _routeBuildersCat(context, catIndex: catIndex);
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => routeBuilders[TabNavigatorRoutes.subCat]!(context),
+        builder: (context) => routeBuilders[TabNavigatorRoutesCat.subCat]!(context),
       )
     );
   }
 
   void _pushCurat(BuildContext context, {int catIndex: 0, int subIndex: 0}) {
-    var routeBuilders = _routeBuilders(context, catIndex: catIndex, subIndex: subIndex);
+    var routeBuilders = _routeBuildersCat(context, catIndex: catIndex, subIndex: subIndex);
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => routeBuilders[TabNavigatorRoutes.curat]!(context),
+        builder: (context) => routeBuilders[TabNavigatorRoutesCat.curat]!(context),
       )
     );
   }
 
-  Map<String, WidgetBuilder> _routeBuilders(BuildContext context,
+  Map<String, WidgetBuilder> _routeBuildersCat(BuildContext context,
   {int catIndex: 0, int subIndex: 0}) {
     return {
-      TabNavigatorRoutes.root: (context) => Categories(
+      TabNavigatorRoutesCat.root: (context) => Categories(
         onPush: (catIndex) => _pushSubCat(context, catIndex: catIndex),
       ),
-      TabNavigatorRoutes.subCat: (context) => SubCat(catIndex),
-      TabNavigatorRoutes.curat: (context) => Curators(catIndex, subIndex),
+      TabNavigatorRoutesCat.subCat: (context) => SubCat(catIndex),
+      TabNavigatorRoutesCat.curat: (context) => Curators(catIndex, subIndex),
+    };
+  }
+
+  Map<String, WidgetBuilder> _routeBuildersLect(BuildContext context) {
+    return {
+      TabNavigatorRoutesLect.root: (context) => Lectures(),
+    };
+  }
+
+  Map<String, WidgetBuilder> _routeBuildersProfile(BuildContext context) {
+    return {
+      TabNavigatorRoutesProfile.root: (context) => Profile(),
     };
   }
 
   @override
   Widget build(BuildContext context) {
-    final routeBuilders = _routeBuilders(context);
+    final routeBuilders = [
+      _routeBuildersCat(context),
+      _routeBuildersLect(context),
+      _routeBuildersProfile(context),
+    ];
+
+    final TabNavigatorRoutes = [
+      TabNavigatorRoutesCat.root,
+      TabNavigatorRoutesLect.root,
+      TabNavigatorRoutesProfile.root,
+    ];
+
     return Navigator(
       key: navigatorKey,
-      initialRoute: TabNavigatorRoutes.root,
+      initialRoute: TabNavigatorRoutes[tabIndex],
       onGenerateRoute: (routeSettings) {
         return MaterialPageRoute(
-          builder: (context) => routeBuilders[routeSettings.name]!(context),
+          builder: (context) => routeBuilders[tabIndex][routeSettings.name]!(context),
         );
       },
     );

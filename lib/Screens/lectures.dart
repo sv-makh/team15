@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
 
-class Lectures {
+class Lectures extends StatelessWidget {
 
-  Widget lectures() {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       child: ListView.builder(
           itemCount: Lections.length,

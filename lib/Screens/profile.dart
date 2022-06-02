@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Profile {
-  Widget profile() {
-    return User();
-  }
-}
-
-class User extends StatelessWidget {
-  const User({Key? key}) : super(key: key);
+class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
