@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:team15/tab_navigator.dart';
 
-//
+//чтобы навигация на вкладках осуществлялась независимо
+//и BottomNavigationBar всегда оставалась на экране,
+//на каждой вкладке сделан свой навигатор (со своим ключом GlobalKey)
+//https://codewithandrea.com/articles/multiple-navigators-bottom-navigation-bar/
 
 class TabBarScreen extends StatefulWidget {
   @override
@@ -9,16 +12,20 @@ class TabBarScreen extends StatefulWidget {
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
+  //индекс текущей открытой вкладки (первоначально экран с Категориями)
   int _selectedIndex = 0;
 
+  //ключи для навигаторов вкладок
   final _navigatorKeys = {
     0: GlobalKey<NavigatorState>(),
     1: GlobalKey<NavigatorState>(),
     2: GlobalKey<NavigatorState>(),
   };
 
+  //переход по вкладкам
   void _onItemTapped(int tabIndex) {
     if (tabIndex == _selectedIndex) {
+      //переход на первый путь
       _navigatorKeys[tabIndex]!.currentState!.popUntil((route) => route.isFirst);
     } else {
       setState(() => _selectedIndex = tabIndex);
@@ -28,11 +35,15 @@ class _TabBarScreenState extends State<TabBarScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+        //при использовании кнопки назад выход из приложения
+        //только если находимся на первом экране любой вкладки
+        //(некуда больше переходить)
         onWillPop: () async =>
-        !await _navigatorKeys[_selectedIndex]!.currentState!.maybePop(),
+          !await _navigatorKeys[_selectedIndex]!.currentState!.maybePop(),
         child: Scaffold(
           body: Stack(
             children: <Widget>[
+              //навигаторы для каждой вкладки
               _buildOffstageNavigator(0),
               _buildOffstageNavigator(1),
               _buildOffstageNavigator(2),
@@ -63,6 +74,7 @@ class _TabBarScreenState extends State<TabBarScreen> {
     );
   }
 
+  //создание навигатора с ключом _navigatorKeys[tabIndex] для вкладки tabIndex
   Widget _buildOffstageNavigator(int tabIndex) {
     return Offstage(
       offstage: _selectedIndex != tabIndex,
