@@ -30,7 +30,7 @@ class TabNavigator extends StatelessWidget {
   final int tabIndex;
 
   //функция перехода с вкладки Категории в подкатегорию
-  void _pushSubCat(BuildContext context, {int catIndex: 0}) {
+  void _pushSubCat(BuildContext context, {int catIndex = 0}) {
     var routeBuilders = _routeBuildersCat(context, catIndex: catIndex);
 
     Navigator.push(
@@ -42,7 +42,7 @@ class TabNavigator extends StatelessWidget {
   }
 
   //функция перехода с подкатегории к кураторам
-  void _pushCurat(BuildContext context, {int catIndex: 0, int subIndex: 0}) {
+  void _pushCurat(BuildContext context, {int catIndex = 0, int subIndex = 0}) {
     var routeBuilders = _routeBuildersCat(context, catIndex: catIndex, subIndex: subIndex);
 
     Navigator.push(
@@ -55,7 +55,7 @@ class TabNavigator extends StatelessWidget {
 
   //экраны для путей вкладки Категории
   Map<String, WidgetBuilder> _routeBuildersCat(BuildContext context,
-  {int catIndex: 0, int subIndex: 0}) {
+  {int catIndex = 0, int subIndex = 0}) {
     return {
       TabNavigatorRoutesCat.root: (context) => Categories(
         onPush: (catIndex) => _pushSubCat(context, catIndex: catIndex),
