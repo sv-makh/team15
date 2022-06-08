@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/categories.dart';
 import 'package:team15/Screens/subcategories.dart';
 import 'package:team15/Screens/curators.dart';
 import 'package:team15/Screens/lectures.dart';
 import 'package:team15/Screens/lecture_signup.dart';
 import 'package:team15/Screens/profile.dart';
+import 'package:team15/Screens/curator_profile.dart';
 
 //класс с именами путей для вкладки Категории
 class TabNavigatorRoutesCat {
   static const String root = '/';
   static const String subCat = '/subcat';
   static const String curat = '/subcat/curat';
+  static const String curatProfile = '/subcat/curat/profile';
 }
 
 //класс с именами путей для вкладки Лекции
@@ -56,15 +57,27 @@ class TabNavigator extends StatelessWidget {
     );
   }
 
+  void _pushCuratProfile(BuildContext context, {int catIndex = 0, int subIndex = 0, int curIndex = 0}) {
+    var routeBuilders = _routeBuildersCat(context, catIndex: catIndex, subIndex: subIndex, curIndex: curIndex);
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => routeBuilders[TabNavigatorRoutesCat.curatProfile]!(context),
+        )
+    );
+  }
+
   //экраны для путей вкладки Категории
   Map<String, WidgetBuilder> _routeBuildersCat(BuildContext context,
-  {int catIndex = 0, int subIndex = 0}) {
+  {int catIndex = 0, int subIndex = 0, int curIndex = 0}) {
     return {
       TabNavigatorRoutesCat.root: (context) => Categories(
         onPush: (catIndex) => _pushSubCat(context, catIndex: catIndex),
       ),
       TabNavigatorRoutesCat.subCat: (context) => SubCat(catIndex),
       TabNavigatorRoutesCat.curat: (context) => Curators(catIndex, subIndex),
+      TabNavigatorRoutesCat.curatProfile: (context) => CuratorProfile(catIndex, subIndex, curIndex),
     };
   }
 
