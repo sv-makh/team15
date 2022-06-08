@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/categories.dart';
 import 'package:team15/Screens/subcategories.dart';
 import 'package:team15/Screens/curators.dart';
 import 'package:team15/Screens/lectures.dart';
+import 'package:team15/Screens/lecture_signup.dart';
 import 'package:team15/Screens/profile.dart';
 
 //класс с именами путей для вкладки Категории
@@ -15,6 +17,7 @@ class TabNavigatorRoutesCat {
 //класс с именами путей для вкладки Лекции
 class TabNavigatorRoutesLect {
   static const String root = '/';
+  static const String lect = '/lect';
 }
 
 //класс с именами путей для вкладки Профиль пользователя
@@ -65,10 +68,23 @@ class TabNavigator extends StatelessWidget {
     };
   }
 
+  void _pushLect(BuildContext context, {int lectIndex = 0}) {
+    var routeBuilders = _routeBuildersLect(context, lectIndex: lectIndex);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => routeBuilders[TabNavigatorRoutesLect.lect]!(context)
+      )
+    );
+  }
+
   //экраны для путей вкладки Лекции
-  Map<String, WidgetBuilder> _routeBuildersLect(BuildContext context) {
+  Map<String, WidgetBuilder> _routeBuildersLect(BuildContext context,
+  {int lectIndex = 0}) {
     return {
       TabNavigatorRoutesLect.root: (context) => Lectures(),
+      TabNavigatorRoutesLect.lect: (context) => LectureSignUp(lectIndex),
     };
   }
 
