@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
+import 'package:team15/Screens/lecture_signup.dart';
 
 class Lectures extends StatefulWidget {
   @override
@@ -81,7 +82,10 @@ class _LecturesState extends State<Lectures> {
               leading: Image.asset(currentLection.icon),
               title: Text(currentLection.name),
               subtitle: Text(currentLection.description),
-              onTap: () {},
+              onTap: () {
+                Route route = MaterialPageRoute(builder: ((context) => LectureSignUp(index)));
+                Navigator.push(context, route);
+              },
             ),
             );
           }

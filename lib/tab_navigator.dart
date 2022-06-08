@@ -68,12 +68,23 @@ class TabNavigator extends StatelessWidget {
     };
   }
 
+  void _pushLect(BuildContext context, {int lectIndex = 0}) {
+    var routeBuilders = _routeBuildersLect(context, lectIndex: lectIndex);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => routeBuilders[TabNavigatorRoutesLect.lect]!(context)
+      )
+    );
+  }
+
   //экраны для путей вкладки Лекции
   Map<String, WidgetBuilder> _routeBuildersLect(BuildContext context,
-  {Lection lecture = }) {
+  {int lectIndex = 0}) {
     return {
       TabNavigatorRoutesLect.root: (context) => Lectures(),
-      TabNavigatorRoutesLect.lect: (context) => LectureSignUp(lecture),
+      TabNavigatorRoutesLect.lect: (context) => LectureSignUp(lectIndex),
     };
   }
 
