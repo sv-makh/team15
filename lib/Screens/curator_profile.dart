@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:team15/Data/data.dart';
 
 class CuratorProfile extends StatelessWidget {
@@ -9,9 +10,19 @@ class CuratorProfile extends StatelessWidget {
   CuratorProfile(this.catIndex, this.subIndex, this.curIndex, {Key? key})
       : super(key: key);
 
+  //ширина кнопки со временем лекции
+  double buttonWidth = 160;
+  //ширина зазора между кнопками в строке
+  double buttonGap = 18;
+
   @override
   Widget build(BuildContext context) {
     Curator curator = CategoryList[catIndex].list![subIndex].list![curIndex];
+
+    //ширина экрана
+    double screenWidth = MediaQuery.of(context).size.width;
+    //отстояние от края экрана строки кнопок
+    double leftEdge = ( screenWidth - buttonWidth * 2 - buttonGap ) / 2;
 
     return Scaffold(
         appBar: AppBar(
@@ -62,8 +73,54 @@ class CuratorProfile extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
+              for (int i =  0; i < curator.list!.length/2; i++) _timeRow(i, leftEdge)
             ])
         )
     );
   }
+
+  Widget _timeRow(int i, double leftEdge) {
+    Curator curator = CategoryList[catIndex].list![subIndex].list![curIndex];
+
+    return Column(
+      children: [
+        Row(
+          children: [
+            SizedBox(
+              width: leftEdge,
+            ),
+            _timeButton(curator.list![i~/2]),
+            SizedBox(
+              width: buttonGap,
+            ),
+            if (i ~/ 2 + 1 < curator.list!.length) _timeButton(curator.list![i ~/ 2 + 1])
+          ],
+        ),
+        const SizedBox(
+          height: 20,
+        )
+      ],
+    );
+  }
+
+  Widget _timeButton(Lection lect) {
+    final DateFormat formatterTime = DateFormat('HH:mm');
+
+    return SizedBox(
+      width: buttonWidth,
+      height: 100,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(36.0))),
+          backgroundColor: MaterialStateProperty.all<Color>(
+              const Color.fromRGBO(119, 235, 151, 1)),
+        ),
+        child: Text(formatterTime.format(lect.dateTime!),
+          style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold))
+    ));
+  }
 }
+
