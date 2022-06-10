@@ -124,9 +124,9 @@ class Curator {
   String name = "";
   String bio = "";
   String avatar = "";
-  List<Lection>? list;
+  List<int>? list; //список индексов лекций из массива Lections
 
-  Curator(String n, String b, String a, List<Lection> l) {
+  Curator(String n, String b, String a, List<int> l) {
     name = n;
     bio = b;
     avatar = a;
@@ -135,14 +135,14 @@ class Curator {
 }
 
 var CuratorList1 = [
-  Curator("Инна Мориц", "C#, Xamarin, C++, Andoird NDK", "assets/images/cur1.png", [Lections[0], Lections[1], Lections[2]]),
-  Curator("Татьяна Белова", "Flutter, Dart, KMM, Kotlin", "assets/images/cur2.png", [Lections[3]]),
-  Curator("Ольга Держиева", "Andpoid, Java, ООП, SOLID", "assets/images/cur3.png", [Lections[4], Lections[5]]),
-  Curator("Елена Иванова", "Алгоритмы и структуры данных", "assets/images/cur4.png", [Lections[6]])
+  Curator("Инна Мориц", "C#, Xamarin, C++, Andoird NDK", "assets/images/cur1.png", [0, 1, 2]),
+  Curator("Татьяна Белова", "Flutter, Dart, KMM, Kotlin", "assets/images/cur2.png", [3]),
+  Curator("Ольга Держиева", "Andpoid, Java, ООП, SOLID", "assets/images/cur3.png", [4, 5]),
+  Curator("Елена Иванова", "Алгоритмы и структуры данных", "assets/images/cur4.png", [6])
 ];
 
 var CuratorList2 = [
-  Curator("София Новикова", "iOS, ObjectiveC, Swift", "assets/images/cur1.png", [Lections[0], Lections[1], Lections[2]]),
-  Curator("Василиса Воробьева", "DevOps, CI/CD", "assets/images/cur2.png", [Lections[3]]),
-  Curator("Александра Кузнецова", "Manual QA, DevTools, Agile/Scrum", "assets/images/cur3.png", [Lections[4], Lections[5]])
+  Curator("София Новикова", "iOS, ObjectiveC, Swift", "assets/images/cur1.png", [0, 1, 2]),
+  Curator("Василиса Воробьева", "DevOps, CI/CD", "assets/images/cur2.png", [3]),
+  Curator("Александра Кузнецова", "Manual QA, DevTools, Agile/Scrum", "assets/images/cur3.png", [4, 5])
 ];
