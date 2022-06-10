@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:team15/Data/data.dart';
+import 'package:team15/Screens/lecture_signup.dart';
 
 class CuratorProfile extends StatelessWidget {
   int catIndex;
@@ -73,15 +74,24 @@ class CuratorProfile extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              for (int i =  0; i <= curator.list!.length ~/ 2; i++) _timeRow(i, leftEdge)
+              //строки с кнопками для записи на лекцию
+              //в каждой строке по две кнопки
+              for (int i =  0; i < curator.list!.length / 2; i++) _dateTimeRow(i, leftEdge, context)
             ])
         )
     );
   }
 
-  Widget _timeRow(int i, double leftEdge) {
+  //виджет строки с кнопками для записи на лекцию
+  //i номер строки
+  //leftEdge отстояние строки от левого края экрана
+  //context контекст экрана CuratorProfile
+  Widget _dateTimeRow(int i, double leftEdge, BuildContext context) {
+    //куратор, которого показывает данная страница
     Curator curator = CategoryList[catIndex].list![subIndex].list![curIndex];
 
+    //индекс лекции из массива лекций, которые предлагает данный куратор
+    //для первой кнопки в строке
     int index = i * 2;
 
     return Column(
@@ -91,11 +101,13 @@ class CuratorProfile extends StatelessWidget {
             SizedBox(
               width: leftEdge,
             ),
-            _timeButton(Lections[ curator.list![index] ]),
+            //первая кнопка строки
+            _dateTimeButton( curator.list![index], context ),
             SizedBox(
               width: buttonGap,
             ),
-            if (index + 1 < curator.list!.length) _timeButton( Lections[ curator.list![index + 1] ] )
+            //второй кнопки в строке может не быть
+            if (index + 1 < curator.list!.length) _dateTimeButton( curator.list![index + 1], context )
           ],
         ),
         const SizedBox(
@@ -105,7 +117,12 @@ class CuratorProfile extends StatelessWidget {
     );
   }
 
-  Widget _timeButton(Lection lect) {
+  //виджет кнопки записи на лекцию
+  //index индекс лекции из массива всех лекций Lections
+  //context  контекст экрана CuratorProfile
+  Widget _dateTimeButton(int index, BuildContext context) {
+    Lection lect = Lections[index];
+
     final DateFormat formatterTime = DateFormat('HH:mm');
     final DateFormat formatterDate = DateFormat('dd.MM.yyyy');
 
@@ -113,7 +130,10 @@ class CuratorProfile extends StatelessWidget {
       width: buttonWidth,
       height: 100,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: ((context) => LectureSignUp(index)));
+          Navigator.push(context, route);
+        },
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
