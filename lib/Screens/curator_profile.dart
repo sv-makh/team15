@@ -73,7 +73,7 @@ class CuratorProfile extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              for (int i =  0; i < curator.list!.length/2; i++) _timeRow(i, leftEdge)
+              for (int i =  0; i <= curator.list!.length ~/ 2; i++) _timeRow(i, leftEdge)
             ])
         )
     );
@@ -82,6 +82,8 @@ class CuratorProfile extends StatelessWidget {
   Widget _timeRow(int i, double leftEdge) {
     Curator curator = CategoryList[catIndex].list![subIndex].list![curIndex];
 
+    int index = i * 2;
+
     return Column(
       children: [
         Row(
@@ -89,11 +91,11 @@ class CuratorProfile extends StatelessWidget {
             SizedBox(
               width: leftEdge,
             ),
-            _timeButton(curator.list![i~/2]),
+            _timeButton(Lections[ curator.list![index] ]),
             SizedBox(
               width: buttonGap,
             ),
-            if (i ~/ 2 + 1 < curator.list!.length) _timeButton(curator.list![i ~/ 2 + 1])
+            if (index + 1 < curator.list!.length) _timeButton( Lections[ curator.list![index + 1] ] )
           ],
         ),
         const SizedBox(
@@ -105,6 +107,7 @@ class CuratorProfile extends StatelessWidget {
 
   Widget _timeButton(Lection lect) {
     final DateFormat formatterTime = DateFormat('HH:mm');
+    final DateFormat formatterDate = DateFormat('dd.MM.yyyy');
 
     return SizedBox(
       width: buttonWidth,
@@ -118,8 +121,14 @@ class CuratorProfile extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all<Color>(
               const Color.fromRGBO(119, 235, 151, 1)),
         ),
-        child: Text(formatterTime.format(lect.dateTime!),
-          style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold))
+        child: Column( children: [
+          Spacer(),
+          Text(formatterDate.format(lect.dateTime!),
+            style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold)),
+          Text(formatterTime.format(lect.dateTime!),
+              style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold)),
+          Spacer(),
+        ])
     ));
   }
 }
