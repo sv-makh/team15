@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Screens/curators.dart';
 import 'package:team15/Data/data.dart';
-import 'package:team15/Decor/decorations.dart';
+import 'package:team15/Decor/custom_colors.dart';
 
 class SubCat extends StatelessWidget {
   int index = 0;

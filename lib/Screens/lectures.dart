@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/lecture_signup.dart';
+import 'package:team15/Decor/custom_card.dart';
 
 class Lectures extends StatefulWidget {
   @override
@@ -73,7 +74,14 @@ class _LecturesState extends State<Lectures> {
 
           Lection currentLection = _showLections[index];
 
-          return Card(
+          return CustomCard(currentLection.icon, currentLection.name, currentLection.description,
+              () {
+                Route route = MaterialPageRoute(builder: ((context) => LectureSignUp(index)));
+                Navigator.push(context, route);
+              }
+              );
+
+          /*return Card(
             color: const Color.fromRGBO(126, 239, 220, 1),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(38.0),
@@ -87,7 +95,7 @@ class _LecturesState extends State<Lectures> {
                 Navigator.push(context, route);
               },
             ),
-            );
+            );*/
           }
         )
       )),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/curator_profile.dart';
+import 'package:team15/Decor/custom_card.dart';
 
 class Curators extends StatelessWidget {
   int indexCategory = 0;
@@ -26,7 +27,17 @@ class Curators extends StatelessWidget {
           child: ListView.builder(
               itemCount: curatorsOfSubcategory!.length,
               itemBuilder: ((BuildContext context, int index) {
-                return Card(
+                return CustomCard(curatorsOfSubcategory[index].avatar,
+                    curatorsOfSubcategory[index].name,
+                    curatorsOfSubcategory[index].bio,
+                    () {
+                      Route route = MaterialPageRoute(
+                          builder: ((context) => CuratorProfile(
+                              indexCategory, indexSubcategory, index)));
+                      Navigator.push(context, route);
+                    }
+                    );
+                /*return Card(
                   color: const Color.fromRGBO(126, 239, 220, 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(38.0),
@@ -42,7 +53,7 @@ class Curators extends StatelessWidget {
                       Navigator.push(context, route);
                     },
                   ),
-                );
+                );*/
               })),
         ));
   }

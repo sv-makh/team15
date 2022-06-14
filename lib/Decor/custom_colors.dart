@@ -9,3 +9,5 @@ List<Color?> categoryColors = [
   Color.fromRGBO(119, 235, 151, 1),
   Color.fromRGBO(126, 239, 220, 1),
 ];
+
+Color buttonColor = Color.fromRGBO(126, 239, 220, 1);
