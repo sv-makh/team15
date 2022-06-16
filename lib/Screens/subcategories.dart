@@ -4,11 +4,10 @@ import 'package:team15/Data/data.dart';
 import 'package:team15/Decor/custom_colors.dart';
 
 class SubCat extends StatelessWidget {
-  int index = 0;
+  final int index;
+  final Function(int, int)? onPush;
 
-  SubCat(int i) {
-    index = i;
-  }
+  SubCat(this.index, {this.onPush});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +27,10 @@ class SubCat extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(38.0),
                   ),
-                  onPressed: () {
+                  onPressed: () => onPush?.call(index, subIndex),/*() {
                     Route route = MaterialPageRoute(builder: ((context) => Curators(index, subIndex)));
                     Navigator.push(context, route);
-                  },
+                  },*/
                   padding: EdgeInsets.all(10.0),
                   color: categoryColors[index],
                   textColor: Colors.white,

@@ -57,6 +57,7 @@ class TabNavigator extends StatelessWidget {
     );
   }
 
+  //функция перехода со списка кураторов на экран с профилем конкретного куратора
   void _pushCuratProfile(BuildContext context, {int catIndex = 0, int subIndex = 0, int curIndex = 0}) {
     var routeBuilders = _routeBuildersCat(context, catIndex: catIndex, subIndex: subIndex, curIndex: curIndex);
 
@@ -75,12 +76,22 @@ class TabNavigator extends StatelessWidget {
       TabNavigatorRoutesCat.root: (context) => Categories(
         onPush: (catIndex) => _pushSubCat(context, catIndex: catIndex),
       ),
-      TabNavigatorRoutesCat.subCat: (context) => SubCat(catIndex),
-      TabNavigatorRoutesCat.curat: (context) => Curators(catIndex, subIndex),
+      TabNavigatorRoutesCat.subCat: (context) => SubCat(
+        catIndex,
+        onPush: (catIndex, subIndex) =>
+            _pushCurat(context, catIndex: catIndex, subIndex: subIndex)
+      ),
+      TabNavigatorRoutesCat.curat: (context) => Curators(
+        catIndex,
+        subIndex,
+        onPush: (catIndex, subIndex, curIndex) =>
+            _pushCuratProfile(context, catIndex: catIndex, subIndex: subIndex, curIndex: curIndex)
+      ),
       TabNavigatorRoutesCat.curatProfile: (context) => CuratorProfile(catIndex, subIndex, curIndex),
     };
   }
 
+  //функция перехода с вкладки Лекции к экрану отдельной лекции
   void _pushLect(BuildContext context, {int lectIndex = 0}) {
     var routeBuilders = _routeBuildersLect(context, lectIndex: lectIndex);
 
@@ -96,7 +107,9 @@ class TabNavigator extends StatelessWidget {
   Map<String, WidgetBuilder> _routeBuildersLect(BuildContext context,
   {int lectIndex = 0}) {
     return {
-      TabNavigatorRoutesLect.root: (context) => Lectures(),
+      TabNavigatorRoutesLect.root: (context) => Lectures(
+        onPush: (lectIndex) => _pushLect(context, lectIndex: lectIndex),
+      ),
       TabNavigatorRoutesLect.lect: (context) => LectureSignUp(lectIndex),
     };
   }
