@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/lecture_signup.dart';
+import 'package:team15/Decor/custom_colors.dart';
 
 class Lectures extends StatefulWidget {
+  final Function(int)? onPush;
+
+  Lectures({this.onPush});
+
   @override
   State<Lectures> createState() => _LecturesState();
 }
 
 class _LecturesState extends State<Lectures> {
+
   //массив будущих лекций
   List<Lection> _futureLections = [];
   //массив лекций в записи
   List<Lection> _recLections = [];
   //массив лекций, которые отображаются на экране, по умолчанию - все
   List<Lection> _showLections = Lections;
-
-  static const Color darkMint = Color.fromRGBO(0, 181, 133, 1);
-  static const Color lightMint = Color.fromRGBO(29, 233, 182, 1);
 
   //цвета кнопок для показа лекций, по умолчанию активная(тёмная) первая
   List<Color> _showColor = [
@@ -73,21 +76,37 @@ class _LecturesState extends State<Lectures> {
 
           Lection currentLection = _showLections[index];
 
-          return Card(
-            color: const Color.fromRGBO(126, 239, 220, 1),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(38.0),
-            ),
-            child: ListTile(
-              leading: Image.asset(currentLection.icon),
-              title: Text(currentLection.name),
-              subtitle: Text(currentLection.description),
-              onTap: () {
-                Route route = MaterialPageRoute(builder: ((context) => LectureSignUp(index)));
-                Navigator.push(context, route);
-              },
-            ),
-            );
+          return Container(
+              height: 150,
+              child: Card(
+                color: buttonColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(38.0),
+                ),
+                child: Center( child: ListTile(
+                  leading: Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        image: DecorationImage(
+                            image: AssetImage(currentLection.icon),
+                            fit: BoxFit.fitHeight
+                        )
+                    ),
+                  ),
+                  title: Padding( child: Text(currentLection.name,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                    padding: const EdgeInsets.only(bottom: 10),
+                  ),
+                  subtitle: Text(currentLection.description,
+                    style: TextStyle(fontSize: 20, ),
+                  ),
+                  onTap: () => widget.onPush?.call(index),//onTap.call,
+                )),
+              ));
+
           }
         )
       )),

@@ -4,32 +4,21 @@ class Lection {
   String icon = "";
   DateTime? dateTime;
 
-  Lection(String n, String d, String i, DateTime dt) {
-    name = n;
-    description = d;
-    icon = i;
-    dateTime = dt;
-  }
+  Lection(this.name, this.description, this.icon, this.dateTime);
 }
 
 class Category {
   String? name;
   List<SubCategory>? list;
 
-  Category(String n, List<SubCategory> l) {
-    name = n;
-    list = l;
-  }
+  Category(this.name, this.list);
 }
 
 class SubCategory {
   String? name;
   List<Curator>? list;
 
-  SubCategory(String n, List<Curator> l) {
-    name = n;
-    list = l;
-  }
+  SubCategory(this.name, this.list);
 }
 
 var Lections = [
@@ -111,27 +100,16 @@ class User {
   List<Lection>? listLect;
   List<Category>? listCat;
 
-  User(String n, String b, String a, List<Lection> lL, List<Category> lC) {
-    name = n;
-    bio = b;
-    avatar = a;
-    listLect = lL;
-    listCat = lC;
-  }
+  User(this.name, this.bio, this.avatar, this.listLect, this.listCat);
 }
 
 class Curator {
-  String name = "";
-  String bio = "";
-  String avatar = "";
+  String name;
+  String bio;
+  String avatar;
   List<int>? list; //список индексов лекций из массива Lections
 
-  Curator(String n, String b, String a, List<int> l) {
-    name = n;
-    bio = b;
-    avatar = a;
-    list = l;
-  }
+  Curator(this.name, this.bio, this.avatar, this.list);
 }
 
 var CuratorList1 = [
