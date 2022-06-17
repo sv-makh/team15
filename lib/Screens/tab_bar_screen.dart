@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:team15/tab_navigator.dart';
+import 'package:team15/Decor/custom_colors.dart';
 
 //чтобы навигация на вкладках осуществлялась независимо
 //и BottomNavigationBar всегда оставалась на экране,
@@ -49,27 +50,42 @@ class _TabBarScreenState extends State<TabBarScreen> {
               _buildOffstageNavigator(2),
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: const Color.fromRGBO(29, 233, 182, 1),
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+                color: lightMint,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(28),
+                  topLeft: Radius.circular(28),
+                )
+            ),
+            child: Material(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(28),
+                  topLeft: Radius.circular(28),
+              )
+            ),
+            child: BottomNavigationBar(
+            //backgroundColor: lightMint,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.widgets_outlined),
                 label: 'Категории',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.book_outlined),
+                icon: Icon(Icons.work_outline),
                 label: 'Лекции',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: Icon(Icons.person_outline),
                 label: 'Профиль',
               ),
             ],
             currentIndex: _selectedIndex,
-            selectedItemColor: const Color.fromRGBO(0, 181, 133, 1),
+            selectedItemColor: darkMint,
             unselectedItemColor: Colors.white,
             onTap: _onItemTapped,
-          ),
+          ),))
         )
     );
   }
