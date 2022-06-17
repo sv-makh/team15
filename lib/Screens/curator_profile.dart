@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/lecture_signup.dart';
+import 'package:team15/Decor/custom_colors.dart';
 
 class CuratorProfile extends StatelessWidget {
   int catIndex;
@@ -13,6 +14,7 @@ class CuratorProfile extends StatelessWidget {
 
   //ширина кнопки со временем лекции
   double buttonWidth = 160;
+
   //ширина зазора между кнопками в строке
   double buttonGap = 18;
 
@@ -23,12 +25,12 @@ class CuratorProfile extends StatelessWidget {
     //ширина экрана
     double screenWidth = MediaQuery.of(context).size.width;
     //отстояние от края экрана строки кнопок
-    double leftEdge = ( screenWidth - buttonWidth * 2 - buttonGap ) / 2;
+    double leftEdge = (screenWidth - buttonWidth * 2 - buttonGap) / 2;
 
     return Scaffold(
         appBar: AppBar(
           title: Text(curator.name),
-          backgroundColor: const Color.fromRGBO(29, 233, 182, 1),
+          backgroundColor: lightMint,
         ),
         body: SingleChildScrollView(
             child: Column(
@@ -47,7 +49,8 @@ class CuratorProfile extends StatelessWidget {
               ),
               Text(
                 curator.name,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
@@ -76,10 +79,9 @@ class CuratorProfile extends StatelessWidget {
               ),
               //строки с кнопками для записи на лекцию
               //в каждой строке по две кнопки
-              for (int i =  0; i < curator.list!.length / 2; i++) _dateTimeRow(i, leftEdge, context)
-            ])
-        )
-    );
+              for (int i = 0; i < curator.list!.length / 2; i++)
+                _dateTimeRow(i, leftEdge, context)
+            ])));
   }
 
   //виджет строки с кнопками для записи на лекцию
@@ -102,12 +104,13 @@ class CuratorProfile extends StatelessWidget {
               width: leftEdge,
             ),
             //первая кнопка строки
-            _dateTimeButton( curator.list![index], context ),
+            _dateTimeButton(curator.list![index], context),
             SizedBox(
               width: buttonGap,
             ),
             //второй кнопки в строке может не быть
-            if (index + 1 < curator.list!.length) _dateTimeButton( curator.list![index + 1], context )
+            if (index + 1 < curator.list!.length)
+              _dateTimeButton(curator.list![index + 1], context)
           ],
         ),
         const SizedBox(
@@ -127,29 +130,34 @@ class CuratorProfile extends StatelessWidget {
     final DateFormat formatterDate = DateFormat('dd.MM.yyyy');
 
     return SizedBox(
-      width: buttonWidth,
-      height: 100,
-      child: ElevatedButton(
-        onPressed: () {
-          Route route = MaterialPageRoute(builder: ((context) => LectureSignUp(index)));
-          Navigator.push(context, route);
-        },
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(36.0))),
-          backgroundColor: MaterialStateProperty.all<Color>(
-              const Color.fromRGBO(119, 235, 151, 1)),
-        ),
-        child: Column( children: [
-          Spacer(),
-          Text(formatterDate.format(lect.dateTime!),
-            style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold)),
-          Text(formatterTime.format(lect.dateTime!),
-              style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold)),
-          Spacer(),
-        ])
-    ));
+        width: buttonWidth,
+        height: 100,
+        child: ElevatedButton(
+            onPressed: () {
+              Route route = MaterialPageRoute(
+                  builder: ((context) => LectureSignUp(index)));
+              Navigator.push(context, route);
+            },
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(36.0))),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color.fromRGBO(119, 235, 151, 1)),
+            ),
+            child: Column(children: [
+              const Spacer(),
+              Text(formatterDate.format(lect.dateTime!),
+                  style: const TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
+              Text(formatterTime.format(lect.dateTime!),
+                  style: const TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
+              const Spacer(),
+            ])));
   }
 }
-

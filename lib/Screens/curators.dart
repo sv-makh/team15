@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
-import 'package:team15/Screens/curator_profile.dart';
 import 'package:team15/Decor/custom_colors.dart';
 
+//экран со списком кураторов подкатегории
 class Curators extends StatelessWidget {
   final int indexCategory;
   final int indexSubcategory;
@@ -18,7 +18,7 @@ class Curators extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Список кураторов'),
-          backgroundColor: const Color.fromRGBO(29, 233, 182, 1),
+          backgroundColor: lightMint,
         ),
         body: Container(
           padding: const EdgeInsets.all(10),
@@ -34,7 +34,8 @@ class Curators extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(38.0),
                       ),
-                      child: Center( child: ListTile(
+                      child: Center(
+                        child: ListTile(
                         leading: Container(
                           height: 100,
                           width: 100,
@@ -42,19 +43,24 @@ class Curators extends StatelessWidget {
                               borderRadius: BorderRadius.circular(18),
                               image: DecorationImage(
                                   image: AssetImage(curator.avatar),
-                                  fit: BoxFit.fitHeight
-                              )
+                                  fit: BoxFit.fitHeight)),
+                        ),
+                        title: Padding(
+                          child: Text(
+                            curator.name,
+                            style: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        title: Padding( child: Text(curator.name,
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
                           padding: const EdgeInsets.only(bottom: 10),
                         ),
-                        subtitle: Text(curator.bio,
-                          style: TextStyle(fontSize: 20, ),
+                        subtitle: Text(
+                          curator.bio,
+                          style: const TextStyle(
+                            fontSize: 20,
+                          ),
                         ),
-                        onTap: () => onPush?.call(indexCategory, indexSubcategory, index),
+                        onTap: () => onPush?.call(
+                            indexCategory, indexSubcategory, index),
                       )),
                     ));
               })),

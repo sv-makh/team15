@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:team15/Data/data.dart';
+import 'package:team15/Decor/custom_colors.dart';
 
+//экран записи на лекцию
 class LectureSignUp extends StatelessWidget {
   //индекс лекции в массиве Lections из team15/Data/data.dart
   int index;
@@ -26,7 +28,7 @@ class LectureSignUp extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(29, 233, 182, 1),
+          backgroundColor: lightMint,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: SizedBox(
@@ -36,8 +38,7 @@ class LectureSignUp extends StatelessWidget {
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(38.0))),
-              backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color.fromRGBO(126, 239, 220, 1)),
+              backgroundColor: MaterialStateProperty.all<Color>(buttonColor),
               fixedSize:
                   MaterialStateProperty.all<Size>(const Size.fromHeight(100.0)),
             ),
@@ -97,7 +98,6 @@ class LectureSignUp extends StatelessWidget {
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }

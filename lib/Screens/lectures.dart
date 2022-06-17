@@ -3,6 +3,7 @@ import 'package:team15/Data/data.dart';
 import 'package:team15/Screens/lecture_signup.dart';
 import 'package:team15/Decor/custom_colors.dart';
 
+//экран на второй вкладке BottomNavigationBar
 class Lectures extends StatefulWidget {
   final Function(int)? onPush;
 
@@ -96,12 +97,12 @@ class _LecturesState extends State<Lectures> {
                     ),
                   ),
                   title: Padding( child: Text(currentLection.name,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                     padding: const EdgeInsets.only(bottom: 10),
                   ),
                   subtitle: Text(currentLection.description,
-                    style: TextStyle(fontSize: 20, ),
+                    style: const TextStyle(fontSize: 20, ),
                   ),
                   onTap: () => widget.onPush?.call(index),//onTap.call,
                 )),
