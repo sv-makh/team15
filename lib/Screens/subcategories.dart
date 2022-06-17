@@ -18,6 +18,10 @@ class SubCat extends StatelessWidget {
         child: ListView.builder(
             itemCount: currentSubCategoryList!.length,
             itemBuilder: ((BuildContext context, int subIndex) {
+              //вычисление цвета подкатегории
+              Color _subColor = itemColorInGradient(
+                  subIndex, currentSubCategoryList.length, index);
+
               return Container(
                   margin: const EdgeInsets.all(10),
                   width: 356,
@@ -29,7 +33,7 @@ class SubCat extends StatelessWidget {
                             const TextStyle(fontSize: 28, color: Colors.black)),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            categoryColors[index]!),
+                            _subColor),//categoryColors[index]!),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
