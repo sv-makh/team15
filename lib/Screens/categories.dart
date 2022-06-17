@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
 import 'package:team15/Decor/custom_colors.dart';
 
+//экран на первой вкладке BottomNavigationBar
 class Categories extends StatelessWidget {
   Categories({this.onPush});
 
@@ -13,25 +14,29 @@ class Categories extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(10),
         child: ListView.builder(
-          itemCount: CategoryList.length,
-          itemBuilder: ((BuildContext context, int index) {
-            return Container(
-              margin: const EdgeInsets.all(10),
-              width: 356,
-              height: 80,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(38.0),
-                ),
-                onPressed: () => onPush?.call(index),
-                padding: const EdgeInsets.all(10.0),
-                color: categoryColors[index],
-                textColor: Colors.white,
-                child: Text(CategoryList[index].name!,
-                    style: const TextStyle(fontSize: 28, color: Colors.black)),
-              ),
-            );
-          })
+            itemCount: CategoryList.length,
+            itemBuilder: ((BuildContext context, int index) {
+              return Container(
+                  margin: const EdgeInsets.all(10),
+                  width: 356,
+                  height: 80,
+                  child: ElevatedButton(
+                    onPressed: () => onPush?.call(index),
+                    child: Text(CategoryList[index].name!,
+                        style:
+                            const TextStyle(fontSize: 28, color: Colors.black)),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                          categoryColors[index]!,
+                        ),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(38.0)))),
+                  )
+              );
+            })
         ),
       ),
     );

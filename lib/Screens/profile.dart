@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:team15/Decor/custom_colors.dart';
 
+//экран на третьей вкладке BottomNavigationBar
 class Profile extends StatelessWidget {
 
   @override
@@ -55,32 +57,40 @@ class Profile extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(10),
                 height: 50,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(38.0),
-                  ),
+                child: ElevatedButton(
                   onPressed: () {},
-                  padding: const EdgeInsets.all(10.0),
-                  color: const Color.fromRGBO(119, 235, 151, 1),
-                  textColor: Colors.white,
                   child: const Text("Дизайн",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
-                ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      const Color.fromRGBO(119, 235, 151, 1)
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(38.0),
+                      )
+                    )
+                  ),
+                )
               ),
               Container(
                 margin: const EdgeInsets.all(10),
                 height: 50,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(38.0),
-                  ),
+                child: ElevatedButton(
                   onPressed: () {},
-                  padding: const EdgeInsets.all(10.0),
-                  color: const Color.fromRGBO(126, 239, 220, 1),
-                  textColor: Colors.white,
                   child: const Text("Программирование",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
-                ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color.fromRGBO(119, 235, 151, 1)
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(38.0),
+                          )
+                      )
+                  ),
+                )
               ),
             ],
           ),
@@ -95,32 +105,36 @@ class Profile extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(10),
                 height: 50,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(38.0),
-                  ),
+                child: ElevatedButton(
                   onPressed: () {},
-                  padding: const EdgeInsets.all(10.0),
-                  color: const Color.fromRGBO(126, 239, 220, 1),
-                  textColor: Colors.white,
                   child: const Text("Создание макетов в Figma",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
-                ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        buttonColor),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(38.0),),
+                    )
+                  ),
+                )
               ),
               Container(
                 margin: const EdgeInsets.all(10),
                 height: 50,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(38.0),
-                  ),
+                child: ElevatedButton(
                   onPressed: () {},
-                  padding: const EdgeInsets.all(10.0),
-                  color: const Color.fromRGBO(126, 239, 220, 1),
-                  textColor: Colors.white,
                   child: const Text("Flutter для начинающих",
                       style: TextStyle(fontSize: 18, color: Colors.black)),
-                ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          buttonColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(38.0),),
+                      )
+                  ),
+                )
               ),
             ],
           ),
@@ -128,8 +142,9 @@ class Profile extends StatelessWidget {
             height: 10,
           ),
           ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: const Color.fromRGBO(29, 233, 182, 1.0)),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(lightMint)
+              ),
               onPressed: () {},
               child: const Text(
                 'Настройки',

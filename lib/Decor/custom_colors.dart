@@ -10,7 +10,7 @@ List<Color?> categoryColors = [
   Color.fromRGBO(126, 239, 220, 1),
 ];
 
-Color buttonColor = Color.fromRGBO(126, 239, 220, 1);
+const Color buttonColor = Color.fromRGBO(126, 239, 220, 1);
 
-Color darkMint = Color.fromRGBO(0, 181, 133, 1);
-Color lightMint = Color.fromRGBO(29, 233, 182, 1);
+const Color darkMint = Color.fromRGBO(0, 181, 133, 1);
+const Color lightMint = Color.fromRGBO(29, 233, 182, 1);
