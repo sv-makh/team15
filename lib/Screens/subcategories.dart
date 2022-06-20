@@ -14,7 +14,7 @@ class SubCat extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: ListView.builder(
             itemCount: currentSubCategoryList!.length,
             itemBuilder: ((BuildContext context, int subIndex) {
