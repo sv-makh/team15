@@ -22,7 +22,7 @@ class Categories extends StatelessWidget {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () => onPush?.call(index),
-                    child: Text(CategoryList[index].name!,
+                    child: Text(CategoryList[index].name,
                         style:
                             const TextStyle(fontSize: 28, color: Colors.black)),
                     style: ButtonStyle(

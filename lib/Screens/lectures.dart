@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
-import 'package:team15/Screens/lecture_signup.dart';
 import 'package:team15/Decor/custom_colors.dart';
 
 //экран на второй вкладке BottomNavigationBar

@@ -8,7 +8,7 @@ class Lection {
 }
 
 class Category {
-  String? name;
+  String name;
   List<SubCategory>? list;
 
   Category(this.name, this.list);
