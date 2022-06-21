@@ -7,7 +7,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
+      body: SafeArea( child: SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -70,7 +70,7 @@ class Profile extends StatelessWidget {
               ))
         ],
       ),
-    ));
+    )));
   }
 
   //виджет для карточки лекции

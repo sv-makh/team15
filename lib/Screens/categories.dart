@@ -11,7 +11,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SafeArea( child: Container(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: ListView.builder(
             itemCount: CategoryList.length,
@@ -38,7 +38,7 @@ class Categories extends StatelessWidget {
               );
             })
         ),
-      ),
+      )),
     );
   }
 }
