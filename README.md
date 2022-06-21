@@ -10,6 +10,8 @@ Share experience
 
 <img src="https://github.com/sv-makh/team15/blob/sv-makh/blob/Screenshot_20220621_162458.png" alt="Экран категорий" width="200"/>
 
+![<img src="https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png" width="200" />](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png)
+
 ## Demo
 
 ![demo gif](/team15/demo/demo.gif?raw=true)
