@@ -8,7 +8,7 @@ Share experience
 
 ![Экран категорий](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png)
 
-<img src="https://github.com/sv-makh/team15/tree/sv-makh/blob/Screenshot_20220621_162458.png" alt="Экран категорий" width="200"/>
+<img src="https://github.com/sv-makh/team15/blob/sv-makh/blob/Screenshot_20220621_162458.png" alt="Экран категорий" width="200"/>
 
 ## Demo
 
