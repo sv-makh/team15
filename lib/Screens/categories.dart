@@ -12,7 +12,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: ListView.builder(
             itemCount: CategoryList.length,
             itemBuilder: ((BuildContext context, int index) {

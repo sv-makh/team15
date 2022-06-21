@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team15/tab_navigator.dart';
+import 'package:team15/Decor/custom_colors.dart';
+import 'package:team15/Decor/nav_bar_icons.dart';
 
 //чтобы навигация на вкладках осуществлялась независимо
 //и BottomNavigationBar всегда оставалась на экране,
@@ -26,7 +28,9 @@ class _TabBarScreenState extends State<TabBarScreen> {
   void _onItemTapped(int tabIndex) {
     if (tabIndex == _selectedIndex) {
       //переход на первый путь
-      _navigatorKeys[tabIndex]!.currentState!.popUntil((route) => route.isFirst);
+      _navigatorKeys[tabIndex]!
+          .currentState!
+          .popUntil((route) => route.isFirst);
     } else {
       setState(() => _selectedIndex = tabIndex);
     }
@@ -39,39 +43,54 @@ class _TabBarScreenState extends State<TabBarScreen> {
         //только если находимся на первом экране любой вкладки
         //(некуда больше переходить)
         onWillPop: () async =>
-          !await _navigatorKeys[_selectedIndex]!.currentState!.maybePop(),
+            !await _navigatorKeys[_selectedIndex]!.currentState!.maybePop(),
         child: Scaffold(
-          body: Stack(
-            children: <Widget>[
-              //навигаторы для каждой вкладки
-              _buildOffstageNavigator(0),
-              _buildOffstageNavigator(1),
-              _buildOffstageNavigator(2),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: const Color.fromRGBO(29, 233, 182, 1),
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Категории',
+            body: Stack(
+              children: <Widget>[
+                //навигаторы для каждой вкладки
+                _buildOffstageNavigator(0),
+                _buildOffstageNavigator(1),
+                _buildOffstageNavigator(2),
+              ],
+            ),
+            bottomNavigationBar: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.book_outlined),
-                label: 'Лекции',
+              child: BottomNavigationBar(
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                backgroundColor: lightMint,
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      NavBarIcons.layers,//Icons.widgets_outlined,
+                      size: 50,
+                    ),
+                    label: 'Категории',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      NavBarIcons.case_icon,//Icons.work_outline,
+                      size: 50,
+                    ),
+                    label: 'Лекции',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      NavBarIcons.user,//Icons.person_outline,
+                      size: 50,
+                    ),
+                    label: 'Профиль',
+                  ),
+                ],
+                currentIndex: _selectedIndex,
+                selectedItemColor: darkMint,
+                unselectedItemColor: Colors.white,
+                onTap: _onItemTapped,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Профиль',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: const Color.fromRGBO(0, 181, 133, 1),
-            unselectedItemColor: Colors.white,
-            onTap: _onItemTapped,
-          ),
-        )
-    );
+            )));
   }
 
   //создание навигатора с ключом _navigatorKeys[tabIndex] для вкладки tabIndex
