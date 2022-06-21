@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:team15/Data/data.dart';
-import 'package:team15/Screens/lecture_signup.dart';
 import 'package:team15/Decor/custom_colors.dart';
 
 //экран на второй вкладке BottomNavigationBar
@@ -57,7 +56,7 @@ class _LecturesState extends State<Lectures> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea( child: Container(
       padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
       child: Column( children: [
         //кнопки выбора, какие лекции показывать
@@ -112,7 +111,7 @@ class _LecturesState extends State<Lectures> {
         )
       )),
       ])
-    );
+    ));
   }
 
   //виджет кнопки выбора, какие лекции показывать

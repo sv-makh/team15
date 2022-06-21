@@ -13,7 +13,7 @@ class SubCat extends StatelessWidget {
     List<SubCategory>? currentSubCategoryList = CategoryList[index].list;
 
     return Scaffold(
-      body: Container(
+      body: SafeArea( child: Container(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: ListView.builder(
             itemCount: currentSubCategoryList!.length,
@@ -41,7 +41,7 @@ class SubCat extends StatelessWidget {
                                         BorderRadius.circular(38.0)))),
                   ));
             })),
-      ),
+      )),
     );
   }
 }

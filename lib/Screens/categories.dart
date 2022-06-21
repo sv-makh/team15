@@ -11,7 +11,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SafeArea( child: Container(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: ListView.builder(
             itemCount: CategoryList.length,
@@ -22,7 +22,7 @@ class Categories extends StatelessWidget {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () => onPush?.call(index),
-                    child: Text(CategoryList[index].name!,
+                    child: Text(CategoryList[index].name,
                         style:
                             const TextStyle(fontSize: 28, color: Colors.black)),
                     style: ButtonStyle(
@@ -38,7 +38,7 @@ class Categories extends StatelessWidget {
               );
             })
         ),
-      ),
+      )),
     );
   }
 }
