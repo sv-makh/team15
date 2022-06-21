@@ -1,16 +1,15 @@
 # ShEx
 
 Share experience
+Приложение - проект образовательного комьюнити:
+экраны с выбором категорий и подкатегорий тем, лекций из списка, кураторов, предлагающих лекции; экран с профилем пользователя.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+![Экран категорий](/team15/demo/Screenshot_20220621_162458.png)
 
-A few resources to get you started if this is your first Flutter project:
+<img src="/team15/demo/Screenshot_20220621_162458.png" alt="Экран категорий" width="200"/>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Demo
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![demo gif](/team15/demo/demo.gif?raw=true)
