@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team15/tab_navigator.dart';
 import 'package:team15/Decor/custom_colors.dart';
-import 'package:team15/Decor/nav_bar_icons_icons.dart';
+import 'package:team15/Decor/nav_bar_icons.dart';
 
 //чтобы навигация на вкладках осуществлялась независимо
 //и BottomNavigationBar всегда оставалась на экране,
@@ -65,22 +65,22 @@ class _TabBarScreenState extends State<TabBarScreen> {
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                     icon: Icon(
-                      NavBarIcons.category,//Icons.widgets_outlined,
-                      size: 64,
+                      NavBarIcons.layers,//Icons.widgets_outlined,
+                      size: 50,
                     ),
                     label: 'Категории',
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(
                       NavBarIcons.case_icon,//Icons.work_outline,
-                      size: 64,
+                      size: 50,
                     ),
                     label: 'Лекции',
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(
                       NavBarIcons.user,//Icons.person_outline,
-                      size: 64,
+                      size: 50,
                     ),
                     label: 'Профиль',
                   ),
