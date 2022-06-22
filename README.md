@@ -2,15 +2,16 @@
 
 Share experience
 
-## Getting Started
+Приложение - проект образовательного комьюнити:
 
-This project is a starting point for a Flutter application.
+экраны с выбором категорий и подкатегорий тем, лекций из списка, кураторов, предлагающих лекции; экран с профилем пользователя.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![Экран категорий](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png) ![Кураторы](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162846.png) ![Лекции](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162524.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Запись на лекцию](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162834.png) ![Профиль пользователя](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162545.png)
+
+## Demo
+
+![demo gif](https://github.com/sv-makh/team15/blob/sv-makh/demo/demo.gif)
