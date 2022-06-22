@@ -6,12 +6,8 @@ Share experience
 
 ## Screenshots
 
-![Экран категорий](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png)
-
-<img src="https://github.com/sv-makh/team15/blob/sv-makh/blob/Screenshot_20220621_162458.png" alt="Экран категорий" width="200"/>
-
-![<img src="https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png" width="200" />](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png)
+![Экран категорий](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162458.png) ![Кураторы](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162846.png) ![Лекции](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162524.png) ![Запись на лекцию](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162834.png) ![Профиль пользователя](https://github.com/sv-makh/team15/blob/sv-makh/demo/Screenshot_20220621_162545.png)
 
 ## Demo
 
-![demo gif](/team15/demo/demo.gif?raw=true)
+![demo gif](https://github.com/sv-makh/team15/blob/sv-makh/demo/demo.gif)
